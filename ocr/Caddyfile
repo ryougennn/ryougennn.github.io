@@ -1,0 +1,22 @@
+# Serves the page over https on the LAN, so other devices get screen capture
+# (browsers only allow it on https or localhost). Run from this folder:
+#   caddy run
+# then open https://localhost:8888/ on this PC, or
+# https://<this PC's LAN IP>:8888/ on another device. The certificate
+# comes from Caddy's own local CA, so the browser warns once; accept it.
+{
+	# Don't try to install the local CA into this PC's trust store (needs sudo).
+	skip_install_trust
+	# No http->https redirect: it would need port 80 (root).
+	auto_https disable_redirects
+}
+
+# Any address this PC is reached by (LAN IP, localhost, hostname): Caddy's
+# local CA issues a certificate for whichever one the browser asks for.
+https://:8888 {
+	tls internal {
+		on_demand
+	}
+	root * .
+	file_server
+}

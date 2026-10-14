@@ -1,0 +1,18 @@
+The OCR models in this folder are by rtr46 and are redistributed here
+unmodified, under the GNU Lesser General Public License, version 3
+(LGPL-3.0). The license text is in LGPL-3.0.txt, which supplements the
+GNU General Public License, version 3, in GPL-3.0.txt.
+
+  meiki.text.detect.v0.1.320x192.onnx
+    https://huggingface.co/rtr46/meiki.text.detect.v0
+    sha256 8cdc5daa5c13a5f93adb40ee2e53ad1a3d2f7e372584c5c665b038adeb74ae6d
+
+  meiki.text.rec.v0.960x32.onnx
+    https://huggingface.co/rtr46/meiki.txt.recognition.v0
+    sha256 3e96bc772fbee9717e536a6353032bb944c3382dd2f6960ef4890decda43b000
+
+The page loads them by URL (DETECT_MODEL_URL and RECOG_MODEL_URL in
+index.html), so either can be replaced with another version of the model.
+
+Their preprocessing and postprocessing in index.html are ported from the
+meikiocr library (Apache-2.0): https://github.com/rtr46/meikiocr
